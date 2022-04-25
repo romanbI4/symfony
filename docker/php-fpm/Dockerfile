@@ -1,12 +1,7 @@
 FROM php:7.4-fpm
 
-RUN apt-get update && apt-get install -y \
-    libpq-dev \
-    wget \
-    zlib1g-dev \
-    libmcrypt-dev \
-    libzip-dev
+RUN curl --insecure https://getcomposer.org/composer.phar -o /usr/bin/composer && chmod +x /usr/bin/composer
 
-RUN wget https://getcomposer.org/installer -O - -q | php -- --install-dir=/bin --filename=composer --quiet
+COPY --from=composer /usr/bin/composer /usr/bin/composer
 
-WORKDIR /symfony
+WORKDIR /var/www
