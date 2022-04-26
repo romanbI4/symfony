@@ -3,7 +3,7 @@ DOCKER_FOLDER = cd docker;
 DOCKER_COMP = $(DOCKER_FOLDER) docker-compose
 
 # Docker containers
-PHP_CONT = $(DOCKER_COMP) exec php
+PHP_CONT = $(DOCKER_COMP) exec php-fpm
 
 # Executables
 PHP      = $(PHP_CONT) php
