@@ -14,7 +14,7 @@ class Book
     private $id;
 
     #[ORM\Column(type:"string", length:255)]
-    private $title;
+    private string $title;
 
     public function getId(): ?int
     {
