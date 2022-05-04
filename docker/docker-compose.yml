@@ -4,6 +4,7 @@ services:
   database:
     container_name: postgres_testing
     image: postgres:13.3-alpine
+    restart: always
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 12345
