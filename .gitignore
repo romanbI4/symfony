@@ -1,5 +1,9 @@
 .idea
 
+###> docker ###
+/docker/.env
+###< docker ###
+
 # Cache and logs (Symfony2)
 /app/cache/*
 /app/logs/*
