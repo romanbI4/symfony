@@ -1,7 +1,7 @@
 version: "3.9"
 
 services:
-  database:
+  postgres:
     container_name: postgres_testing
     image: postgres:13.3-alpine
     restart: always
@@ -10,7 +10,7 @@ services:
       POSTGRES_PASSWORD: 12345
       POSTGRES_HOST_AUTH_METHOD: trust
     ports:
-      - "5432:5432"
+      - "5433:5432"
 
   php-fpm:
     container_name: php-fpm_testing

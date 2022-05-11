@@ -25,16 +25,25 @@ build: ## Builds the Docker images
 up: ## Start the docker hub in detached mode (no logs)
 	@$(DOCKER_COMP) up --detach
 
-start: build up ## Build and start the containers
+start: build up migrate fixtures## Build and start the containers
 
 down: ## Stop the docker hub
 	@$(DOCKER_COMP) down --remove-orphans
 
-logs: ## Show live logs
-	@$(DOCKER_COMP) logs --tail=0 --follow
-
 sh: ## Connect to the PHP FPM container
 	@$(PHP_CONT) sh
+
+fixtures:
+	@$(PHP_CONT) sh -c "cd backend; php bin/console doctrine:fixtures:load --no-interaction"
+
+migrate:
+	@$(PHP_CONT) sh -c "cd backend; php bin/console doctrine:migrations:migrate --no-interaction"
+
+migrate-diff:
+	@$(PHP_CONT) sh -c "cd backend; php bin/console doctrine:migrations:diff"
+
+logs: ## Show live logs
+	@$(DOCKER_COMP) logs --tail=0 --follow
 
 ## —— Composer 🧙 ——————————————————————————————————————————————————————————————
 composer: ## Run composer, pass the parameter "c=" to run a given command, example: make composer c='req symfony/orm-pack'
