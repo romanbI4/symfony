@@ -34,6 +34,9 @@ class Book
     #[ORM\Column("boolean", options:["default" => false])]
     private bool $meap;
 
+    /**
+     * @var Collection<BookCategory>
+     */
     #[ORM\ManyToMany(BookCategory::class)]
     private Collection $categories;
 
@@ -119,12 +122,19 @@ class Book
         return $this;
     }
 
-    public function getCategories(): ArrayCollection|Collection
+    /**
+     * @return Collection<BookCategory>
+     */
+    public function getCategories(): Collection
     {
         return $this->categories;
     }
 
-    public function setCategories(ArrayCollection|Collection $categories): self
+    /**
+     * @param Collection<BookCategory> $categories
+     * @return $this
+     */
+    public function setCategories(Collection $categories): self
     {
         $this->categories = $categories;
 
