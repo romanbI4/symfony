@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Exception\BookCategoryNotFoundException;
 use App\Service\BookService;
+use OpenApi\Annotations as OA;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
