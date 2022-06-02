@@ -60,3 +60,4 @@
 ###> phpunit/phpunit ###
 /.phpunit.result.cache
 ###< phpunit/phpunit ###
+/admin/node_modules/

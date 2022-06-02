@@ -45,6 +45,19 @@ migrate-diff:
 logs: ## Show live logs
 	@$(DOCKER_COMP) logs --tail=0 --follow
 
+## —— FRONT  ——————————————————————————————————————————————————————————————
+admin-install:
+	$(EXEC_PHP) sh -c "cd admin; npm install"
+
+admin-install-vue:
+	$(EXEC_PHP) sh -c "cd admin; npm init vue@latest"
+
+admin-run:
+	$(EXEC_PHP) sh -c "cd admin; npm install; npm run dev"
+
+admin-build-prod:
+	$(EXEC_PHP) sh -c "cd admin; npm run build"
+
 ## —— Composer 🧙 ——————————————————————————————————————————————————————————————
 composer: ## Run composer, pass the parameter "c=" to run a given command, example: make composer c='req symfony/orm-pack'
 	@$(eval c ?=)
