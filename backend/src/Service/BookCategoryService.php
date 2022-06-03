@@ -17,14 +17,7 @@ class BookCategoryService
     {
         $categories = $this->bookCategoryRepository->findAllSrotedByTitle();
 
-        $items = array_map(
-            fn (BookCategory $bookCategory) => new BookListItem(
-                $bookCategory->getId(), $bookCategory->getTitle(), $bookCategory->getSlug()
-            ),
-            $categories
-        );
-
-        return new BookCategoryListResponse($items);
+        return new BookCategoryListResponse($categories);
     }
 
 }

@@ -55,7 +55,7 @@ admin-install-vue:
 admin-run:
 	$(EXEC_PHP) sh -c "cd admin; npm install; npm run dev"
 
-admin-build-prod:
+admin-build:
 	$(EXEC_PHP) sh -c "cd admin; npm run build"
 
 ## —— Composer 🧙 ——————————————————————————————————————————————————————————————

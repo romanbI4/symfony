@@ -20,8 +20,7 @@ class BookController extends AbstractController
     /**
      * @OA\Response(
      *     response=200,
-     *     description="Return book by category",
-     * @Model(type=BookListResponse::class)
+     *     description="Return book by category"
      * )
      */
     #[Route('/api/v1/category/{id}/books')]
